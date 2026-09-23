@@ -1,0 +1,25 @@
+    .page-hero { padding:10rem 0 4rem; background:var(--navy); position:relative; }
+    .page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 80% 50%, rgba(201,150,60,0.06) 0%, transparent 60%); }
+    .page-hero h1 { font-size:clamp(2.4rem,4vw,4rem); color:var(--white); font-weight:300; font-style:italic; letter-spacing:-.02em; }
+
+    .mentions-section { background:var(--white); }
+    .mentions-content { max-width:800px; }
+
+    .mentions-content h2 {
+      font-size:1.6rem; color:var(--navy); font-weight:500;
+      margin:3rem 0 1rem; padding-bottom:.8rem;
+      border-bottom:1px solid var(--border);
+    }
+    .mentions-content h2:first-of-type { margin-top:0; }
+
+    .mentions-content p { color:var(--text-muted); font-size:.96rem; line-height:1.8; margin-bottom:1rem; }
+    .mentions-content strong { color:var(--navy); font-weight:600; }
+    .mentions-content a { color:var(--gold); }
+
+    .info-block {
+      background:var(--stone); border-left:2px solid var(--gold);
+      padding:1.5rem 1.8rem; border-radius:2px; margin:1.5rem 0;
+    }
+    .info-block p { margin:0; }
+    .info-block p + p { margin-top:.5rem; }
+  
