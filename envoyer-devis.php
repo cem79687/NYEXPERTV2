@@ -12,7 +12,7 @@ header('Content-Type: application/json; charset=utf-8');
 
 // ─── Configuration ───
 const DEST_EMAIL       = 'contact@yazgoren-expert.fr';
-const TURNSTILE_SECRET = '0x4AAAAAAFCSRKOFWmpoxRsJz0mPmw682vk'; // à remplacer par la clé secrète Turnstile
+const TURNSTILE_SECRET = '0x4AAAAAAFCSRJnbcxkpL3ToQ6icVm1DuII; // à remplacer par la clé secrète Turnstile
 
 function respond(bool $success, string $message = ''): void {
     echo json_encode(['success' => $success, 'message' => $message]);
