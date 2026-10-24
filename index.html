@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="no-js">
 <head>
   <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="img/favicon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <script>document.documentElement.classList.remove("no-js");</script>
   <title>Expert Bâtiment Indépendant — Oise, Val-d'Oise, Somme | Nurset YAZGOREN</title>
   <meta name="description" content="Nurset YAZGOREN, expert bâtiment indépendant agréé dans l'Oise (60), le Val-d'Oise (95) et la Somme (80). Malfaçons, fissures, réception VEFA, sinistres. Rapport opposable. Devis gratuit.">
 <meta name="author" content="Nurset YAZGOREN">
   <meta name="robots" content="index, follow">
-  <meta name="geo.region" content="FR-60 FR-95 FR-80">
-  <meta name="geo.placename" content="Oise, Val-d'Oise, Somme">
   <link rel="canonical" href="https://www.yazgoren-expert.fr/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Nurset YAZGOREN — Expert Bâtiment Indépendant | Oise · Val-d'Oise · Somme">
@@ -17,7 +16,10 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Nurset YAZGOREN — Expert Bâtiment">
   <meta property="og:url" content="https://www.yazgoren-expert.fr/">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://www.yazgoren-expert.fr/img/og-image.jpg">
+  <meta property="og:image:alt" content="Nurset YAZGOREN, expert bâtiment indépendant">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.yazgoren-expert.fr/img/og-image.jpg">
   <meta name="twitter:title" content="Nurset YAZGOREN — Expert Bâtiment | Oise · Val-d'Oise · Somme">
   <meta name="twitter:description" content="Expert bâtiment indépendant agréé. Malfaçons, fissures, VEFA. Oise, Val-d'Oise, Somme.">
   <script type="application/ld+json">
@@ -27,8 +29,8 @@
     "name": "Nurset YAZGOREN — Expert Bâtiment Indépendant",
     "description": "Expert bâtiment indépendant agréé. Malfaçons, fissures, réception VEFA, sinistres. Oise, Val-d'Oise, Somme.",
     "url": "https://www.yazgoren-expert.fr",
-    "telephone": "+33600000000",
-    "email": "contact@yazgoren-expert.fr",
+    "telephone": "+33769522890",
+    "email": "yazgoren.expertbatiment@gmail.com",
     "priceRange": "€€",
     "areaServed": [
       {"@type": "AdministrativeArea", "name": "Oise"},
@@ -48,17 +50,110 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="img/expert-mobile.webp" media="(max-width: 760px)" fetchpriority="high">
+  <link rel="preload" as="image" href="img/expert.webp" media="(min-width: 761px)" fetchpriority="high">
   <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/home.css">
+  <style>
+    /* Spécifique accueil — ex-styles inline. À migrer plus tard dans css/home.css */
+    .no-js .fade-up { opacity: 1; transform: none; }
+    .hero-desc strong { color: var(--gold-light); font-weight: 500; }
+    .hero h1 { text-wrap: balance; }
+
+    /* Hero : la règle .hero-bg-img manquait dans home.css et le dégradé .hero-bg était invalide (virgule finale) */
+    .hero-bg picture { display: contents; }
+    .hero-bg-img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+    .hero-bg::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(165deg, rgba(22,37,56,0.45) 0%, rgba(22,37,56,0.85) 55%, rgba(22,37,56,0.98) 100%); }
+    .hero > .container { position: relative; z-index: 2; }
+    @media (max-width: 760px) {
+      .hero-bg::before { background: linear-gradient(180deg, rgba(22,37,56,0.55) 0%, rgba(22,37,56,0.88) 45%, rgba(22,37,56,0.98) 100%); }
+    }
+    .trust-intro { color: rgba(255,255,255,0.72); max-width: 320px; }
+    .section-label.is-centered { justify-content: center; }
+
+    .process-cta { text-align: center; margin-top: 3.5rem; padding-top: 3rem; border-top: 1px solid var(--border); }
+    .btn-process { display: inline-flex; align-items: center; gap: .6rem; padding: 1rem 2.2rem; background: var(--navy); color: var(--white); font-weight: 600; font-size: .92rem; border-radius: var(--radius-md); text-decoration: none; letter-spacing: .05em; font-family: 'Inter', sans-serif; }
+
+    .conversion-section { background: var(--navy); padding: 5rem 0; text-align: center; border-top: 2px solid var(--gold); border-bottom: 1px solid rgba(201,150,60,0.15); }
+    .conversion-section .section-label { justify-content: center; margin-bottom: 1.5rem; }
+    .conversion-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.8rem); color: var(--white); font-weight: 400; letter-spacing: -0.02em; font-style: italic; margin-bottom: 1.2rem; }
+    .conversion-title em { color: var(--gold-light); font-style: normal; }
+    .conversion-lead { color: rgba(255,255,255,0.78); font-size: 1rem; font-weight: 300; max-width: 560px; margin: 0 auto 2.5rem; text-wrap: balance; }
+    .conversion-actions { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
+    .btn-conv-primary, .btn-conv-ghost { display: inline-flex; align-items: center; gap: .6rem; padding: 1.1rem 2.4rem; font-size: .98rem; border-radius: var(--radius-md); text-decoration: none; font-family: 'Inter', sans-serif; transition: all .25s; }
+    .btn-conv-primary { background: var(--gold); color: var(--navy); font-weight: 700; letter-spacing: .05em; }
+    .btn-conv-ghost { color: rgba(255,255,255,0.92); border: 1px solid rgba(255,255,255,0.3); }
+    .conversion-proof { margin-top: 2rem; font-size: .78rem; color: rgba(255,255,255,0.65); letter-spacing: .1em; text-transform: uppercase; }
+
+    .geo-map { height: 420px; border-radius: 4px; margin-top: 3rem; box-shadow: var(--shadow-md); background: var(--gold-pale); }
+    .footer-legal-link { color: rgba(255,255,255,0.78); text-decoration: none; }
+
+    /* FAB : masqué (et non focusable) tant que la page n'a pas défilé */
+    .fab-container, .fab-mobile-bar { visibility: hidden; }
+    .fab-container.is-shown, .fab-mobile-bar.is-shown { visibility: visible; }
+  </style>
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+  <path d="m9 12 2 2 4-4" /></symbol>
+  <symbol id="i-file-check-2" viewBox="0 0 24 24"><path d="M10.5 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v6" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="m14 20 2 2 4-4" /></symbol>
+  <symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2" />
+  <line x1="12" x2="15" y1="14" y2="11" />
+  <circle cx="12" cy="14" r="8" /></symbol>
+  <symbol id="i-landmark" viewBox="0 0 24 24"><path d="M10 18v-7" />
+  <path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" />
+  <path d="M14 18v-7" />
+  <path d="M18 18v-7" />
+  <path d="M3 22h18" />
+  <path d="M6 18v-7" /></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18" />
+  <path d="m19 8 3 8a5 5 0 0 1-6 0zV7" />
+  <path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" />
+  <path d="m5 8 3 8a5 5 0 0 1-6 0zV7" />
+  <path d="M7 21h10" /></symbol>
+  <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" /></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+  <rect x="2" y="4" width="20" height="16" rx="2" /></symbol>
+  <symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" /></symbol>
+  <symbol id="i-triangle-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
+  <path d="M12 9v4" />
+  <path d="M12 17h.01" /></symbol>
+  <symbol id="i-scan-search" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2" />
+  <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+  <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+  <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+  <circle cx="12" cy="12" r="3" />
+  <path d="m16 16-1.9-1.9" /></symbol>
+  <symbol id="i-clipboard-check" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+  <path d="m9 14 2 2 4-4" /></symbol>
+  <symbol id="i-shield-alert" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+  <path d="M12 8v4" />
+  <path d="M12 16h.01" /></symbol>
+  <symbol id="i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+  <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></symbol>
+  <symbol id="i-hard-hat" viewBox="0 0 24 24"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5" />
+  <path d="M14 6a6 6 0 0 1 6 6v3" />
+  <path d="M4 15v-3a6 6 0 0 1 6-6" />
+  <rect x="2" y="15" width="20" height="4" rx="1" /></symbol>
+</svg>
   <a class="skip-link" href="#main-content">Passer au contenu principal</a>
 
   <!-- HEADER -->
   <header>
     <div class="container navbar">
-      <a href="index.html" class="logo-link">
-        <img src="img/log1.png" alt="Nurset YAZGÖREN — Expert Bâtiment BTP" class="logo-img-real">
+      <a href="index.html" class="logo-link" aria-label="Nurset YAZGÖREN — Accueil">
+        <img src="img/log1-clair.png" alt="Nurset YAZGÖREN — Expert Bâtiment BTP" class="logo-img-real" width="509" height="327">
       </a>
 
       <nav aria-label="Navigation principale"><ul class="nav-links" id="navLinks">
@@ -70,7 +165,7 @@
       </ul></nav>
 
       <a href="contact.html" class="btn-nav desktop">
-        Devis GRATUIT →
+        Devis gratuit <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg>
       </a>
 
       <button type="button" class="menu-toggle" id="menuToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Menu principal">
@@ -82,12 +177,17 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-bg">
+      <picture>
+          <source media="(max-width: 760px)" srcset="img/expert-mobile.webp">
+          <img src="img/expert.webp" alt="" class="hero-bg-img" width="1536" height="1024" fetchpriority="high" decoding="async">
+        </picture>
+    </div>
     <div class="container">
       <div class="hero-content fade-up visible">
         <div class="hero-eyebrow">
           <div class="eyebrow-line"></div>
-          <span class="eyebrow-text">Cabinet indépendant · Expert agréé</span>
+          <span class="eyebrow-text">Cabinet YAZGÖREN, conseil & Expertise Bâtiment</span>
         </div>
 
         <h1>
@@ -96,15 +196,15 @@
         </h1>
 
         <p class="hero-desc">
-          Malfaçons, fissures, sinistres ou réception de chantier…
-         je vous accompagne dans l'<strong style="color:var(--gold-light);font-weight:500;">Oise (60)</strong>, le <strong style="color:var(--gold-light);font-weight:500;">Val-d'Oise (95)</strong> et la <strong style="color:var(--gold-light);font-weight:500;">Somme (80)</strong>, avec indépendance, rigueur et impartialité.
+          Malfaçons, fissures, sinistres ou réception de chantier… je vous accompagne dans l'<strong>Oise (60)</strong>, le <strong>Val-d'Oise (95)</strong> et la <strong>Somme (80)</strong>, avec indépendance, rigueur et impartialité.
+        </p>
 
         <div class="hero-actions">
           <a href="contact.html" class="btn-primary">
-            ✉ Demander une expertise
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg> Demander une expertise
           </a>
           <a href="#services" class="btn-ghost">
-            Découvrir les services →
+            Découvrir les services <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg>
           </a>
         </div>
       </div>
@@ -128,7 +228,7 @@
 
   <!-- PHONE STRIP -->
   <div class="phone-strip">
-    <a href="tel:+33600000000">📞 +33 6 00 00 00 00</a>
+    <a href="tel:+33769522890"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg> +33 7 69 52 28 90</a>
     <p>Réponse sous 24h · Intervention rapide sur toute la région</p>
   </div>
 
@@ -137,14 +237,16 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-img-wrap fade-up">
+          <!-- À FAIRE : remplacer cette photo stock (Unsplash) par une vraie photo de Nurset, hébergée dans img/ -->
           <img
             src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=900&auto=format&fit=crop"
-            alt="Nurset YAZGOREN - Expert bâtiment"
-            loading="lazy"
+            alt=""
+            width="900" height="1125"
+            loading="lazy" decoding="async"
           />
           <div class="about-img-badge">
-            <div class="big">RC</div>
-            <div class="small">Pro assurée</div>
+            <div class="big">15+</div>
+            <div class="small">ans d'expérience</div>
           </div>
         </div>
 
@@ -165,21 +267,21 @@ Ma promesse ? Une indépendance absolue. Je n'ai aucun lien avec les entreprises
           <div class="cert-list">
             
             <div class="cert-item">
-              <div class="cert-icon">🛡️</div>
+              <div class="cert-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield-check"/></svg></div>
               <div class="cert-text">
                 <strong>Assurance RC Professionnelle</strong>
                 <span>Couverture complète pour chaque mission d'expertise</span>
               </div>
             </div>
             <div class="cert-item">
-              <div class="cert-icon">📋</div>
+              <div class="cert-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-file-check-2"/></svg></div>
               <div class="cert-text">
                 <strong>Rapports détaillés & recevables</strong>
                 <span>Documents utilisables face aux constructeurs, assureurs et tribunaux</span>
               </div>
             </div>
             <div class="cert-item">
-              <div class="cert-icon">⚡</div>
+              <div class="cert-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-timer"/></svg></div>
               <div class="cert-text">
                 <strong>Intervention rapide</strong>
                 <span>Déplacement sous 72h · Disponible sur toute la région</span>
@@ -207,37 +309,60 @@ Ma promesse ? Une indépendance absolue. Je n'ai aucun lien avec les entreprises
 
       <div class="services-grid fade-up">
         <div class="service-card">
-          <div class="service-num">01</div>
+          <img class="service-bg" src="img/svc-malfacons.webp" alt="" width="800" height="600" loading="lazy" decoding="async">
+          <div class="service-top">
+            <div class="service-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-triangle-alert"/></svg></div>
+            <div class="service-num" aria-hidden="true">01</div>
+          </div>
           <h3>Malfaçons & Désordres</h3>
           <p>Identification et documentation des défauts de construction, non-conformités DTU, malfaçons sur ouvrages neufs ou rénovés.</p>
         </div>
 
         <div class="service-card">
-          <div class="service-num">02</div>
+          <img class="service-bg" src="img/svc-fissures.webp" alt="" width="800" height="600" loading="lazy" decoding="async">
+          <div class="service-top">
+            <div class="service-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-scan-search"/></svg></div>
+            <div class="service-num" aria-hidden="true">02</div>
+          </div>
           <h3>Fissures & Pathologies</h3>
           <p>Diagnostic structurel des fissures, analyse des causes (tassements, retrait, humidité), évaluation des risques et préconisations.</p>
         </div>
 
         <div class="service-card">
-          <div class="service-num">03</div>
+          <img class="service-bg" src="img/svc-reception.webp" alt="" width="800" height="600" loading="lazy" decoding="async">
+          <div class="service-top">
+            <div class="service-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clipboard-check"/></svg></div>
+            <div class="service-num" aria-hidden="true">03</div>
+          </div>
           <h3>Réception de Chantier</h3>
           <p>Contrôle qualité avant livraison, assistance à la réception VEFA, inventaire des réserves et vérification de conformité.</p>
         </div>
 
         <div class="service-card">
-          <div class="service-num">04</div>
+          <img class="service-bg" src="img/svc-sinistres.webp" alt="" width="800" height="600" loading="lazy" decoding="async">
+          <div class="service-top">
+            <div class="service-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield-alert"/></svg></div>
+            <div class="service-num" aria-hidden="true">04</div>
+          </div>
           <h3>Sinistres & Assurances</h3>
           <p>Accompagnement lors des expertises amiables ou judiciaires, contre-expertise, analyse des causes et chiffrage des préjudices.</p>
         </div>
 
         <div class="service-card">
-          <div class="service-num">05</div>
+          <img class="service-bg" src="img/svc-avant-achat.webp" alt="" width="800" height="600" loading="lazy" decoding="async">
+          <div class="service-top">
+          <div class="service-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-house"/></svg></div>
+            <div class="service-num" aria-hidden="true">05</div>
+          </div>
           <h3>Avant Achat Immobilier</h3>
           <p>Audit technique complet avant acquisition — identification des défauts cachés, estimation des travaux, aide à la négociation.</p>
         </div>
 
         <div class="service-card">
-          <div class="service-num">06</div>
+          <div class="service-top">
+            <div class="service-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-hard-hat"/></svg></div>
+            <div class="service-num" aria-hidden="true">06</div>
+          </div>
           <h3>Suivi de Travaux</h3>
           <p>Contrôle indépendant de l'avancement des travaux, vérification de la conformité des prestations et des matériaux mis en œuvre.</p>
         </div>
@@ -256,30 +381,24 @@ Ma promesse ? Une indépendance absolue. Je n'ai aucun lien avec les entreprises
           </div>
           <h2>Pourquoi me faire<br>confiance ?</h2>
         </div>
-        <p style="color:rgba(255,255,255,0.55); max-width:320px;">Des garanties concrètes pour vous assurer une expertise de qualité, en toute sérénité.</p>
+        <p class="trust-intro">Des garanties concrètes pour vous assurer une expertise de qualité, en toute sérénité.</p>
       </div>
 
       <div class="trust-grid fade-up">
         <div class="trust-card">
-          <div class="trust-icon">🏛️</div>
-          <h3>Agréé Tribunaux</h3>
-          <p>Expert inscrit auprès de la Cour d'Appel. Mes rapports sont recevables dans toutes les procédures judiciaires.</p>
-        </div>
-
-        <div class="trust-card">
-          <div class="trust-icon">⚖️</div>
+          <div class="trust-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-scale"/></svg></div>
           <h3>Totalement Indépendant</h3>
           <p>Aucun lien avec les constructeurs, promoteurs ou compagnies d'assurance. Mon seul client : vous.</p>
         </div>
 
         <div class="trust-card">
-          <div class="trust-icon">🛡️</div>
+          <div class="trust-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield-check"/></svg></div>
           <h3>RC Pro Couverte</h3>
           <p>Assurance responsabilité civile professionnelle en vigueur pour chaque mission. Votre sérénité est garantie.</p>
         </div>
 
         <div class="trust-card">
-          <div class="trust-icon">📄</div>
+          <div class="trust-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-file-text"/></svg></div>
           <h3>Rapports Clés en Main</h3>
           <p>Documents structurés, photographiés, argumentés. Directement utilisables face aux artisans, assureurs et avocats.</p>
         </div>
@@ -293,7 +412,7 @@ Ma promesse ? Une indépendance absolue. Je n'ai aucun lien avec les entreprises
   <section class="tarifs-section" id="tarifs">
     <div class="container">
       <div class="tarifs-header fade-up">
-        <div class="section-label" style="justify-content:center;">
+        <div class="section-label is-centered">
           <div class="line"></div>
           <span>Investissement</span>
         </div>
@@ -363,7 +482,7 @@ Ma promesse ? Une indépendance absolue. Je n'ai aucun lien avec les entreprises
   <section class="process-section">
     <div class="container">
       <div class="process-header fade-up">
-        <div class="section-label" style="justify-content:center;">
+        <div class="section-label is-centered">
           <div class="line"></div>
           <span>Comment ça se passe ?</span>
         </div>
@@ -392,26 +511,26 @@ Ma promesse ? Une indépendance absolue. Je n'ai aucun lien avec les entreprises
           <p>Document complet livré sous 5 à 7 jours. Explications et accompagnement inclus.</p>
         </div>
       </div>
-    </div>
-      <div style="text-align:center;margin-top:3.5rem;padding-top:3rem;border-top:1px solid var(--border);">
-        <a href="contact.html" style="display:inline-flex;align-items:center;gap:0.6rem;padding:1rem 2.2rem;background:var(--navy);color:var(--white);font-weight:600;font-size:0.92rem;border-radius:6px;text-decoration:none;letter-spacing:0.05em;font-family:'Inter',sans-serif;">
-          Démarrer ma mission →
+      <div class="process-cta">
+        <a href="contact.html" class="btn-process">
+          Démarrer ma mission <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg>
         </a>
       </div>
     </div>
   </section>
 
   <!-- AVIS CLIENTS -->
+  <!-- À VALIDER AVEC LE CLIENT : la note 4,9/5 et "48 avis vérifiés" doivent être justifiables (source, lien). Les 3 témoignages viennent aussi de zones hors Oise/Val-d'Oise/Somme. -->
   <section class="avis-section" id="avis">
     <div class="container">
       <div class="avis-header fade-up">
-        <div class="section-label" style="justify-content:center;">
+        <div class="section-label is-centered">
           <div class="line"></div>
           <span>Témoignages</span>
         </div>
         <h2>Ce que disent mes clients</h2>
         <div class="avis-stars-global">
-          <span class="stars">★★★★★</span>
+          <span class="stars" aria-hidden="true">★★★★★</span><span class="visually-hidden">Note de</span>
           <span class="avis-score">4,9</span>
           <span class="avis-total">/ 5 · 48 avis vérifiés</span>
         </div>
@@ -419,7 +538,7 @@ Ma promesse ? Une indépendance absolue. Je n'ai aucun lien avec les entreprises
 
       <div class="avis-grid fade-up">
         <div class="avis-card">
-          <div class="avis-card-stars">★★★★★</div>
+          <div class="avis-card-stars" role="img" aria-label="5 étoiles sur 5">★★★★★</div>
           <p class="avis-text">Expertise réalisée suite à des fissures inquiétantes sur notre pavillon. Rapport clair, précis, photographié. Nurset a su expliquer les causes et les solutions à envisager. Nous avons pu négocier avec le constructeur grâce à son rapport.</p>
           <div class="avis-author">
             <div class="avis-avatar">MB</div>
@@ -431,7 +550,7 @@ Ma promesse ? Une indépendance absolue. Je n'ai aucun lien avec les entreprises
         </div>
 
         <div class="avis-card">
-          <div class="avis-card-stars">★★★★★</div>
+          <div class="avis-card-stars" role="img" aria-label="5 étoiles sur 5">★★★★★</div>
           <p class="avis-text">Accompagnement lors de la réception de notre appartement neuf VEFA. Plus de 40 réserves relevées que nous n'aurions jamais vues seuls. Professionnel, rigoureux, disponible pour répondre à nos questions même après la remise du rapport.</p>
           <div class="avis-author">
             <div class="avis-avatar">TL</div>
@@ -448,7 +567,7 @@ Ma promesse ? Une indépendance absolue. Je n'ai aucun lien avec les entreprises
 
 
         <div class="avis-card">
-          <div class="avis-card-stars">★★★★★</div>
+          <div class="avis-card-stars" role="img" aria-label="5 étoiles sur 5">★★★★★</div>
           <p class="avis-text">Expert sérieux et humain à la fois. Il a pris le temps de tout m'expliquer lors de la visite. Le rapport était livré en 5 jours comme promis. Grâce à son travail, mon dossier devant le tribunal de proximité a été accepté sans difficulté.</p>
           <div class="avis-author">
             <div class="avis-avatar">NC</div>
@@ -464,28 +583,28 @@ Ma promesse ? Une indépendance absolue. Je n'ai aucun lien avec les entreprises
 
 
   <!-- BLOC CONVERSION POST-AVIS -->
-  <section class="conversion-section" style="background:var(--navy);padding:5rem 0;text-align:center;border-top:2px solid var(--gold);border-bottom:1px solid rgba(201,150,60,0.15);">
+  <section class="conversion-section">
     <div class="container">
-      <div class="section-label" style="justify-content:center;margin-bottom:1.5rem;">
+      <div class="section-label">
         <div class="line"></div>
         <span>Passez à l'action</span>
       </div>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.8rem);color:var(--white);font-weight:400;letter-spacing:-0.02em;font-style:italic;margin-bottom:1.2rem;">
-        Prêt à <em style="color:var(--gold-light);font-style:normal;">sécuriser votre bien ?</em>
+      <h2 class="conversion-title">
+        Prêt à <em>sécuriser votre bien ?</em>
       </h2>
-      <p style="color:rgba(255,255,255,0.6);font-size:1rem;margin-bottom:2.5rem;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto;margin-bottom:2.5rem;">
+      <p class="conversion-lead">
         Premier échange gratuit · Réponse sous 24h · Devis sans engagement
       </p>
-      <div style="display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;">
-        <a href="contact.html" style="display:inline-flex;align-items:center;gap:0.6rem;padding:1.1rem 2.4rem;background:var(--gold);color:var(--navy);font-weight:700;font-size:0.98rem;border-radius:6px;text-decoration:none;letter-spacing:0.05em;transition:all 0.25s;font-family:'Inter',sans-serif;">
-          Obtenir mon devis gratuit →
+      <div class="conversion-actions">
+        <a href="contact.html" class="btn-conv-primary">
+          Obtenir mon devis gratuit <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg>
         </a>
-        <a href="tel:+33600000000" style="display:inline-flex;align-items:center;gap:0.6rem;padding:1.1rem 2.4rem;color:rgba(255,255,255,0.88);font-size:0.98rem;text-decoration:none;border:1px solid rgba(255,255,255,0.22);border-radius:6px;font-family:'Inter',sans-serif;transition:all 0.25s;">
-          📞 Appeler directement
+        <a href="tel:+33600000000" class="btn-conv-ghost">
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg> Appeler directement
         </a>
       </div>
-      <p style="margin-top:2rem;font-size:0.78rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;">
-        RC Pro assurée · Expert agréé Cour d'Appel · 15+ années d'expérience
+      <p class="conversion-proof">
+        RC Pro assurée ·   15+ années d'expérience
       </p>
     </div>
   </section>
@@ -494,7 +613,7 @@ Ma promesse ? Une indépendance absolue. Je n'ai aucun lien avec les entreprises
   <section class="geo-section">
     <div class="container">
       <div class="geo-header">
-        <div class="section-label" style="justify-content:center;">
+        <div class="section-label is-centered">
           <div class="line"></div>
           <span>Zone d'intervention</span>
         </div>
@@ -521,40 +640,10 @@ Ma promesse ? Une indépendance absolue. Je n'ai aucun lien avec les entreprises
         Intervention possible sur d'autres départements selon la nature de la mission —
         <a href="contact.html">contactez-moi</a> pour vérifier.
       </p>
-      <div id="geoMap" role="region" aria-label="Carte interactive des zones d’intervention" style="height:420px;border-radius:4px;margin-top:3rem;box-shadow:var(--shadow-md);"></div>
+      <div id="geoMap" class="geo-map" role="region" aria-label="Carte interactive des zones d’intervention"></div>
     </div>
   </section>
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script>
-    const geoMap = L.map('geoMap', { scrollWheelZoom: false }).setView([49.42, 2.15], 8);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      maxZoom: 18
-    }).addTo(geoMap);
-
-    const goldIcon = L.divIcon({
-      className: '',
-      html: '<div style="width:16px;height:16px;border-radius:50%;background:#C9963C;border:3px solid #162538;box-shadow:0 2px 6px rgba(0,0,0,.3);"></div>',
-      iconSize: [16, 16],
-      iconAnchor: [8, 8]
-    });
-
-    const zones = [
-      { name: 'Oise (60)', coords: [49.4295, 2.0807], cities: 'Beauvais · Compiègne · Senlis · Chantilly · Creil' },
-      { name: "Val-d'Oise (95)", coords: [49.0364, 2.0765], cities: 'Cergy-Pontoise · Argenteuil · Pontoise · Sarcelles · Taverny' },
-      { name: 'Somme (80)', coords: [49.8942, 2.2957], cities: 'Amiens · Abbeville · Péronne · Albert · Montdidier' }
-    ];
-
-    const markers = zones.map(z => {
-      return L.marker(z.coords, { icon: goldIcon })
-        .addTo(geoMap)
-        .bindPopup(`<strong>${z.name}</strong><br>${z.cities}`);
-    });
-
-    geoMap.fitBounds(L.latLngBounds(zones.map(z => z.coords)), { padding: [40, 40] });
-  </script>
 
   <!-- FOOTER -->
   </main>
@@ -562,10 +651,8 @@ Ma promesse ? Une indépendance absolue. Je n'ai aucun lien avec les entreprises
     <div class="container">
       <div class="footer-top">
                 <div class="footer-brand">
-          <div class="footer-logo-crop">
-            <img src="img/log1.png" alt="Nurset YAZGÖREN — Expert Bâtiment BTP" class="logo-img-footer-real" loading="lazy">
-          </div>
-          <p>Expert agréé, assuré RC Pro, intervenant dans l'Oise,Somme,Val-d'Oise et les régions limitrophes depuis plus de 15 ans.</p>
+          <img src="img/log1-clair.png" alt="Nurset YAZGÖREN — Expert Bâtiment BTP" class="logo-img-footer-real" width="509" height="327" loading="lazy">
+          <p> Assuré RC Pro, intervenant dans l'Oise, la Somme, le Val-d'Oise et les régions limitrophes depuis plus de 15 ans.</p>
         </div>
 
         <div class="footer-col">
@@ -582,8 +669,8 @@ Ma promesse ? Une indépendance absolue. Je n'ai aucun lien avec les entreprises
         <div class="footer-col">
           <h2>Liens</h2>
           <ul>
-            <li><a href="tel:+33600000000">📞 +33 6 00 00 00 00</a></li>
-            <li><a href="mailto:contact@yazgoren-expert.fr">✉ contact@yazgoren-expert.fr</a></li>
+            <li><a href="tel:+33769522890"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg> +33 7 69 52 28 90</a></li>
+            <li><a href="mailto:yazgoren.expertbatiment@gmail.com"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg> yazgoren.expertbatiment@gmail.com</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Demander une expertise</a></li>
             <li><a href="mentions-legales.html">Mentions légales</a></li>
@@ -592,8 +679,8 @@ Ma promesse ? Une indépendance absolue. Je n'ai aucun lien avec les entreprises
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 Nurset YAZGOREN — Expert Bâtiment Indépendant. Tous droits réservés. · <a href="mentions-legales.html" style="color:rgba(255,255,255,0.72);text-decoration:none;">Mentions légales</a></p>
-        <p>RC Pro assurée · Expert agréé Cour d'Appel · SIRET : XXX XXX XXX XXXXX</p>
+        <p>© 2026 Nurset YAZGOREN — Expert Bâtiment Indépendant. Tous droits réservés. · <a href="mentions-legales.html" class="footer-legal-link">Mentions légales</a></p>
+        <p>RC Pro assurée ·   SIRET : 489 670 786 00032</p>
       </div>
     </div>
   </footer>
@@ -602,100 +689,161 @@ Ma promesse ? Une indépendance absolue. Je n'ai aucun lien avec les entreprises
   <div class="fab-container" id="fabContainer">
     <!-- Email -->
     <div class="fab-item" style="transition-delay: 0.1s">
-      <div class="fab-tooltip">Envoyer un email</div>
-      <a href="mailto:contact@yazgoren-expert.fr" class="fab-tertiary" id="fabEmail" aria-label="Envoyer un email">
-        ✉️
+      <div class="fab-tooltip" aria-hidden="true">Envoyer un email</div>
+      <a href="mailto:yazgoren.expertbatiment@gmail.com" class="fab-tertiary" id="fabEmail" aria-label="Envoyer un email">
+        <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>
       </a>
     </div>
     <!-- WhatsApp -->
     <div class="fab-item">
-      <div class="fab-tooltip">WhatsApp</div>
-      <a href="https://wa.me/33600000000?text=Bonjour%2C%20je%20souhaite%20une%20expertise%20b%C3%A2timent." class="fab-secondary" id="fabWhatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
-        💬
+      <div class="fab-tooltip" aria-hidden="true">WhatsApp</div>
+      <a href="https://wa.me/33600000000?text=Bonjour%2C%20je%20souhaite%20une%20expertise%20b%C3%A2timent." class="fab-secondary" id="fabWhatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-message-circle"/></svg>
       </a>
     </div>
     <!-- Téléphone — bouton principal -->
     <div class="fab-item">
-      <div class="fab-tooltip">📞 +33 6 00 00 00 00</div>
-      <a href="tel:+33600000000" class="fab-main" aria-label="Appeler Nurset YAZGOREN">
-        📞
+      <div class="fab-tooltip" aria-hidden="true">+33 7 69 52 28 90</div>
+      <a href="tel:+33769522890" class="fab-main" aria-label="Appeler Nurset YAZGOREN">
+        <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>
       </a>
     </div>
   </div>
 
   <!-- ─── BARRE MOBILE STICKY ─── -->
   <div class="fab-mobile-bar" id="fabMobileBar">
-    <a href="tel:+33600000000" class="fab-mobile-call">
-      📞 Appeler
+    <a href="tel:+33769522890" class="fab-mobile-call">
+      
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg> Appeler
     </a>
-    <a href="https://wa.me/33600000000?text=Bonjour%2C%20je%20souhaite%20une%20expertise%20b%C3%A2timent." class="fab-mobile-whatsapp" target="_blank" rel="noopener">
-      💬 WhatsApp
+    <a href="https://wa.me/33769522890?text=Bonjour%2C%20je%20souhaite%20une%20expertise%20b%C3%A2timent." class="fab-mobile-whatsapp" target="_blank" rel="noopener noreferrer">
+      
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-message-circle"/></svg> WhatsApp
     </a>
   </div>
 
 
   <script src="main.js"></script>
   <script>
-    // Scroll animations
+    // ─── Apparition au scroll ───
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, 80);
+          setTimeout(() => entry.target.classList.add('visible'), 80);
           observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
 
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // Header scroll effect
+    // ─── Scroll : fond du header + affichage des boutons de contact (un seul listener) ───
     const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        header.style.background = 'rgba(22, 37, 56, 0.99)';
-      } else {
-        header.style.background = 'rgba(22, 37, 56, 0.97)';
-      }
-    });
-
-    // ─── FAB (bouton flottant contact) ───
-    const fabEmail = document.getElementById('fabEmail');
-    const fabWhatsapp = document.getElementById('fabWhatsapp');
     const fabContainer = document.getElementById('fabContainer');
     const fabMobile = document.getElementById('fabMobileBar');
+    let ticking = false;
 
-    if (fabContainer) {
-      fabContainer.addEventListener('mouseenter', () => {
-        fabEmail && fabEmail.classList.add('visible');
-        fabWhatsapp && fabWhatsapp.classList.add('visible');
-      });
-      fabContainer.addEventListener('mouseleave', () => {
-        fabEmail && fabEmail.classList.remove('visible');
-        fabWhatsapp && fabWhatsapp.classList.remove('visible');
-      });
-    }
-
-    // Affichage du FAB après 300px de scroll
-    if (fabContainer) {
-      fabContainer.style.transition = 'opacity 0.4s ease';
-      fabContainer.style.opacity = '0';
-    }
-    if (fabMobile) {
-      fabMobile.style.transition = 'transform 0.4s ease';
-      fabMobile.style.transform = 'translateY(100%)';
-    }
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        if (fabContainer) fabContainer.style.opacity = '1';
-        if (fabMobile) fabMobile.style.transform = 'translateY(0)';
-      } else {
-        if (fabContainer) fabContainer.style.opacity = '0';
-        if (fabMobile) fabMobile.style.transform = 'translateY(100%)';
+    function onScroll() {
+      const y = window.scrollY;
+      header.style.background = y > 60 ? 'rgba(22, 37, 56, 0.99)' : 'rgba(22, 37, 56, 0.97)';
+      const show = y > 300;
+      if (fabContainer) {
+        fabContainer.style.opacity = show ? '1' : '0';
+        fabContainer.classList.toggle('is-shown', show);
       }
-    });
+      if (fabMobile) {
+        fabMobile.style.transform = show ? 'translateY(0)' : 'translateY(100%)';
+        fabMobile.classList.toggle('is-shown', show);
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+    }, { passive: true });
+
+    if (fabContainer) fabContainer.style.transition = 'opacity 0.4s ease';
+    if (fabMobile) fabMobile.style.transition = 'transform 0.4s ease';
+    onScroll();
+
+    // ─── FAB : sous-boutons visibles au survol ET au focus clavier ───
+    if (fabContainer) {
+      const fabEmail = document.getElementById('fabEmail');
+      const fabWhatsapp = document.getElementById('fabWhatsapp');
+      const setExpanded = (on) => {
+        [fabEmail, fabWhatsapp].forEach((el) => el && el.classList.toggle('visible', on));
+      };
+      fabContainer.addEventListener('mouseenter', () => setExpanded(true));
+      fabContainer.addEventListener('mouseleave', () => setExpanded(false));
+      fabContainer.addEventListener('focusin', () => setExpanded(true));
+      fabContainer.addEventListener('focusout', (e) => {
+        if (!fabContainer.contains(e.relatedTarget)) setExpanded(false);
+      });
+    }
+
+    // ─── Carte Leaflet : chargée seulement quand la section approche de l'écran ───
+    (function () {
+      const mapEl = document.getElementById('geoMap');
+      if (!mapEl) return;
+      let loaded = false;
+
+      function loadScript(src, integrity) {
+        return new Promise((resolve, reject) => {
+          const el = document.createElement('script');
+          el.src = src; el.integrity = integrity; el.crossOrigin = '';
+          el.onload = resolve; el.onerror = reject;
+          document.head.appendChild(el);
+        });
+      }
+
+      function initMap() {
+        const geoMap = L.map('geoMap', { scrollWheelZoom: false }).setView([49.42, 2.15], 8);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+          maxZoom: 18
+        }).addTo(geoMap);
+
+        const goldIcon = L.divIcon({
+          className: '',
+          html: '<div style="width:16px;height:16px;border-radius:50%;background:#C9963C;border:3px solid #162538;box-shadow:0 2px 6px rgba(0,0,0,.3);"></div>',
+          iconSize: [16, 16],
+          iconAnchor: [8, 8]
+        });
+
+        const zones = [
+          { name: 'Oise (60)', coords: [49.4295, 2.0807], cities: 'Beauvais · Compiègne · Senlis · Chantilly · Creil' },
+          { name: "Val-d'Oise (95)", coords: [49.0364, 2.0765], cities: 'Cergy-Pontoise · Argenteuil · Pontoise · Sarcelles · Taverny' },
+          { name: 'Somme (80)', coords: [49.8942, 2.2957], cities: 'Amiens · Abbeville · Péronne · Albert · Montdidier' }
+        ];
+
+        zones.forEach((z) => {
+          L.marker(z.coords, { icon: goldIcon, title: z.name, alt: z.name })
+            .addTo(geoMap)
+            .bindPopup(`<strong>${z.name}</strong><br>${z.cities}`);
+        });
+        geoMap.fitBounds(L.latLngBounds(zones.map((z) => z.coords)), { padding: [40, 40] });
+      }
+
+      function loadLeaflet() {
+        if (loaded) return;
+        loaded = true;
+        const css = document.createElement('link');
+        css.rel = 'stylesheet';
+        css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+        css.integrity = 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=';
+        css.crossOrigin = '';
+        document.head.appendChild(css);
+        loadScript('https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', 'sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=')
+          .then(initMap)
+          .catch(() => { mapEl.textContent = ''; });
+      }
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver((entries, obs) => {
+          if (entries.some((e) => e.isIntersecting)) { loadLeaflet(); obs.disconnect(); }
+        }, { rootMargin: '300px' }).observe(mapEl);
+      } else {
+        loadLeaflet();
+      }
+    })();
   </script>
 </body>
 </html>
