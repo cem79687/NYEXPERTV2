@@ -13,7 +13,7 @@
       inset: 0;
       background:
         linear-gradient(165deg, rgba(22,37,56,0.0) 0%, rgba(22,37,56,0.85) 55%, rgba(22,37,56,0.98) 100%),
-        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1800&auto=format&fit=crop') center/cover no-repeat;
+        
     }
 
     .hero-bg::after {
@@ -430,7 +430,7 @@
 
     .trust-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
 
@@ -1334,3 +1334,88 @@
     }
 
   
+
+    /* ═══════════════════════════════════════════════════════════
+       DESIGN POLISH v2 — spécifique accueil (le partagé est dans style.css)
+       ═══════════════════════════════════════════════════════════ */
+    .btn-primary, .btn-ghost { border-radius: var(--radius-md); gap: .7rem; }
+    .btn-primary .icon, .btn-ghost .icon { width: 1.1em; height: 1.1em; transition: transform .25s ease; }
+    .btn-primary:hover .icon, .btn-ghost:hover .icon { transform: translateX(3px); }
+
+    .phone-strip a { display: inline-flex; align-items: center; gap: .65rem; }
+    .phone-strip a .icon { width: 1.25rem; height: 1.25rem; color: var(--gold-light); }
+
+    .cert-icon .icon { width: 18px; height: 18px; color: #8A5A12; }
+    .trust-icon { border: 1px solid rgba(201,150,60,0.35); }
+    .trust-icon .icon { width: 22px; height: 22px; color: var(--gold-light); }
+    .trust-section .section-label span { color: var(--gold-light); }
+    .trust-section .section-label .line { background: var(--gold-light); }
+
+    /* ─── Cartes services : icône + numéro discret ─── */
+    .service-card { padding: 2.6rem 2.4rem 2.8rem; }
+    .service-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.8rem; }
+    .service-icon {
+      width: 52px; height: 52px; border-radius: 10px;
+      display: grid; place-items: center;
+      background: var(--gold-pale); color: #8A5A12;
+      transition: background .35s ease, color .35s ease;
+    }
+    .service-icon .icon { width: 24px; height: 24px; }
+    .service-card:hover .service-icon { background: rgba(201,150,60,0.18); color: var(--gold-light); }
+    .service-num {
+      margin: 0; font-family: 'Inter', sans-serif;
+      font-size: .8rem; font-weight: 600; letter-spacing: .24em;
+      color: rgba(22,37,56,0.3);
+    }
+    .service-card:hover .service-num { color: rgba(255,255,255,0.4); }
+
+    /* ─── Rythme des sections : la zone d'intervention repasse en clair ─── */
+    .geo-section { background: var(--white); border-top: 0; padding: 6rem 0; }
+    .geo-section .section-label span { color: #80520E; }
+    .geo-header h2 { color: var(--navy); }
+    .geo-card { background: var(--stone); border: 1px solid var(--border); border-top: 2px solid var(--gold); box-shadow: var(--shadow-sm); }
+    .geo-num { color: #A8761F; }
+    .geo-name { color: var(--navy); }
+    .geo-cities { color: var(--text-muted); }
+    .geo-note { color: var(--text-muted); }
+    .geo-note a { color: #80520E; text-decoration: underline; text-underline-offset: 3px; }
+    .geo-note a:hover { color: var(--navy); }
+
+    /* ─── Contrastes sur fonds sombres ─── */
+    .trust-section .section-label span { color: var(--gold-light); }
+    .trust-section .section-label .line { background: var(--gold-light); }
+
+    /* ─── Mobile : plus de contenu rogné à droite ─── */
+    .about-grid > * { min-width: 0; }
+    @media (max-width: 760px) {
+      .hero-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; }
+      .stat-item { padding: 1.1rem .8rem; }
+      .stat-num { font-size: 1.75rem; }
+      .stat-label { font-size: .62rem; letter-spacing: .06em; }
+      .about-img-wrap img { height: 420px; }
+      .about-img-badge { right: .75rem; bottom: .75rem; padding: 1.2rem 1.4rem; }
+    }
+
+    /* ─── Cartes services : photo révélée au survol (ordinateur uniquement) ─── */
+    .service-bg {
+      position: absolute; inset: 0; z-index: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0; transform: scale(1.06);
+      transition: opacity .5s ease, transform .9s ease;
+      pointer-events: none;
+    }
+    .service-card::after {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, rgba(22,37,56,0.60) 0%, rgba(22,37,56,0.80) 50%, rgba(22,37,56,0.94) 100%);
+      opacity: 0; transition: opacity .5s ease; pointer-events: none;
+    }
+    .service-card > .service-top, .service-card > h3, .service-card > p { position: relative; z-index: 2; }
+    .service-card:hover > h3, .service-card:hover > p { text-shadow: 0 1px 12px rgba(22,37,56,0.55); }
+    .service-card::before { z-index: 3; }
+    @media (hover: hover) and (pointer: fine) {
+      .service-card:hover .service-bg { opacity: 1; transform: scale(1); }
+      .service-card:hover::after { opacity: 1; }
+    }
+    /* Écrans tactiles : pas de survol, donc pas de photo (et elle n'est même pas téléchargée) */
+    @media (hover: none) { .service-bg { display: none; } }
+    @media (prefers-reduced-motion: reduce) { .service-bg, .service-card::after { transition: none; } .service-bg { transform: none; } }
